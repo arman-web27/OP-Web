@@ -1549,6 +1549,59 @@
         main section h2, #faq h2, #reviews h2, .comparison-heading h2, .blends-heading h2 { font-size: 30px; line-height: 1.3; }
         main section h3, .benefit-card h3, .blend-card h3 { font-size: 17px; }
       }
+      /* Phone layouts and comfortable touch controls. */
+      @media (max-width: 1000px) and (min-width: 721px) {
+        .nav { gap: 18px; }
+        .navlinks { gap: 16px; font-size: 13px; }
+        .comparison-brand { flex-direction: column; text-align: center; }
+      }
+      @media (max-width: 720px) {
+        html { scroll-padding-top: 88px; }
+        .wrap, main > section.section > .wrap { width: calc(100% - 32px); max-width: 560px; }
+        .announcement { font-size: 12px; line-height: 1.7; text-align: center; padding: 10px 16px; }
+        .nav { height: 68px; }
+        .menu, .close { min-width: 44px; min-height: 44px; }
+        .navlinks { top: 68px; padding: 12px 16px; gap: 4px; max-height: calc(100dvh - 160px); overflow-y: auto; }
+        .navlinks a { display: flex; align-items: center; min-height: 48px; padding: 8px 12px; border-radius: 6px; }
+        .navlinks a.active { background: #d9b76f12; }
+        #home .visual { aspect-ratio: 1; max-height: 420px; }
+        #home .visual .product-art img { object-fit: contain; padding: 16px; }
+        #home h1 em { font-size: clamp(36px, 10vw, 54px); }
+        #home h1 > span { font-size: clamp(23px, 6vw, 30px); }
+        #home .hero-copy { gap: 18px; }
+        #home .ojas-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        #home .trust { gap: 16px 12px; }
+        #home .trust div { padding-inline: 6px; }
+        main section h2, #faq h2, #reviews h2, .comparison-heading h2, .blends-heading h2 { font-size: clamp(26px, 7vw, 32px); overflow-wrap: break-word; }
+        .hero-grid > *, .about-grid > *, .blends-layout > *, .comparison-brand > *, .footer-top > * { min-width: 0; }
+        .btn { min-height: 48px; white-space: normal; text-align: center; }
+        .comparison-cell { flex-direction: column; gap: 8px; padding: 14px 12px; overflow-wrap: anywhere; }
+        .comparison-brand h3 { overflow-wrap: anywhere; }
+        #faq summary { min-height: 56px; }
+        #contact .footer-links a { display: flex; align-items: center; min-height: 44px; }
+        .footer-contact { overflow-wrap: anywhere; }
+        .buy-bar { padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); }
+        body { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+        .toast { bottom: calc(88px + env(safe-area-inset-bottom)); }
+        dialog { max-width: calc(100% - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; overscroll-behavior: contain; }
+        #order-dialog { max-height: calc(100dvh - 24px); }
+        #order-form input, #order-form textarea, #order-form select { font-size: 16px; min-height: 48px; }
+        .dialog-head { gap: 12px; align-items: flex-start; }
+        .dialog-head .close { flex-shrink: 0; }
+      }
+      @media (max-width: 480px) {
+        .blends-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+        .blend-column { grid-template-rows: none; gap: 16px; }
+        .blend-card { padding: 20px; }
+        .blend-card h3, .benefit-card h3 { overflow-wrap: normal; }
+        .benefit-card { padding: 18px 16px; gap: 12px; }
+        .comparison-brand { padding-inline: 8px; }
+        .comparison-label { font-size: 11px; }
+        .comparison-brand p { font-size: 14px; }
+        #reviews .review { padding: 22px 18px; }
+        #contact .footer-links { gap: 16px; }
+        #order-dialog { padding: 18px; }
+      }
     </style>
   </head>
   <body>
@@ -1757,7 +1810,7 @@
           <div class="comparison-board">
             <div class="comparison-brand comparison-ojas">
               <div><span class="comparison-label">प्रकृति से प्रेरित</span><h3>Ojas Prash</h3><p>संपूर्ण पुरुष स्वास्थ्य का साथ</p></div>
-              <img src="images/product.png" alt="Ojas Prash product" loading="lazy" width="180" height="180" />
+              <img src="images/product.avif" alt="Ojas Prash product" loading="lazy" width="180" height="180" />
             </div>
             <div class="comparison-brand comparison-other">
               <span class="comparison-versus" aria-hidden="true">बनाम</span>
@@ -1798,7 +1851,7 @@
             </div>
             <figure class="blend-product">
               <span class="blend-product-tag">Ojas Prash का मिश्रण</span>
-              <img src="images/ingredients.png" alt="Ojas Prash product packaging" width="500" height="500" loading="lazy" />
+              <img src="images/ingredients.avif" alt="Ojas Prash product packaging" width="500" height="500" loading="lazy" />
               <figcaption><strong>ओजस प्राश</strong><span>PREMIUM QUALITY</span><small>पोषण पूरक · पुरुषों के लिए · 125 ग्राम</small></figcaption>
             </figure>
             <div class="blend-column">
@@ -1876,9 +1929,10 @@
             <details open>
               <summary lang="hi">Ojas Prash क्या है?</summary>
               <p lang="hi">
-                Ojas Prash पुरुषों के लिए एक वेलनेस सप्लीमेंट है जो Herbal Deck
-                द्वारा बनाया जाता है। इसमें अफ्रीकन और आयुर्वेदिक जड़ी-बूटियों
-                का मिश्रण है। यह पाउडर और कैप्सूल दोनों रूपों में उपलब्ध है।
+                Ojas Prash पुरुषों के लिए तैयार किया गया एक हर्बल वेलनेस पाउडर है,
+                जिसे Herbal Deck ने अफ्रीकन और आयुर्वेदिक जड़ी-बूटियों के संतुलित
+                मिश्रण से बनाया है। इसे अपनी रोज़मर्रा की वेलनेस रूटीन में आसानी से
+                शामिल किया जा सकता है।
               </p>
             </details>
             <details>
@@ -1929,7 +1983,6 @@
         <div class="footer-top">
           <div class="footer-brand">
             <a href="#home" class="footer-wordmark" aria-label="Ojas Prash home">OJAS <span>PRASH</span></a>
-            <span class="footer-brand-caption">आयुर्वेद से प्रेरित</span>
             <p>
               प्रकृति से प्रेरित। पुरुषों के रोज़मर्रा के स्वास्थ्य की देखभाल के लिए।
             </p>
@@ -2025,7 +2078,7 @@
           offer: "Save up to 20% off",
           size: "30 ML",
           format: "Herbal oil",
-          image: "images/product.png",
+          image: "images/product.avif",
         },
         {
           id: "powder",
@@ -2035,7 +2088,7 @@
           offer: "Save up to 58% off",
           size: "150 g",
           format: "Herbal powder",
-          image: "images/product.png",
+          image: "images/product.avif",
         },
         {
           id: "capsule",
@@ -2045,7 +2098,7 @@
           offer: "Save up to 53% off",
           size: "60 capsules",
           format: "Capsule format",
-          image: "images/product.png",
+          image: "images/product.avif",
         },
         {
           id: "kit",
@@ -2055,7 +2108,7 @@
           offer: "Save up to 66% off",
           size: "3 products",
           format: "Oil + Powder + Capsules",
-          image: "images/product.png",
+          image: "images/product.avif",
         },
       ];
       // Add your real contact email here to enable an email link.
@@ -2149,7 +2202,8 @@
         artwork(p, thumb.firstChild);
       });
       function renderCart() {
-        document.getElementById("cart-count").textContent = cart.reduce(
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) cartCount.textContent = cart.reduce(
           (n, item) => n + item.qty,
           0,
         );
